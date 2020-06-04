@@ -157,16 +157,7 @@ public class ResourceCentre {
 
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
-		ResourceCentre.setHeader("CHROMEBOOK LIST");
-		output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
-				 "AVAILABLE", "DUE DATE","OPERATING SYSTEM");
-
-		for (int i = 0; i < chromebookList.size(); i++) {
-			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
-					chromebookList.get(i).getDescription(), 
-					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
-					chromebookList.get(i).getDueDate(),chromebookList.get(i).getOs());
-		}
+		// write your code here
 		return output;
 	}
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
@@ -188,23 +179,18 @@ public class ResourceCentre {
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
 		
 		camcorderList.add(cc);
-		//camcorderList.add(cc); // Error for Junit to catch.
 		System.out.println("Camcorder added");
 	}
 	
-	public static Chromebook inputChromebook() {
-		String tag = Helper.readString("Enter asset tag > ");
-		String description = Helper.readString("Enter description > ");
-		String os = Helper.readString("Enter operating system > ");
-
-		Chromebook cb= new Chromebook(tag, description, os);
+	public static Chromebook inputChromebook() {	
+		Chromebook cb =null;
+		// write your code here
 		return cb;
 		
 	}	
 	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
 
-		chromebookList.add(cb);
-		System.out.println("Chromebook added");
+		// write your code here
 	}
 	
 	//================================= Option 3 Loan =================================
