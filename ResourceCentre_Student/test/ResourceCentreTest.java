@@ -37,7 +37,7 @@ public class ResourceCentreTest {
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		
 		assertEquals("Check that Camcorder arraylist size is 1", 1, camcorderList.size());
-		assertEquals("Check that Camcorder is added", cc1, camcorderList.get(0));
+		assertSame("Check that Camcorder is added", cc1, camcorderList.get(0));
 		
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		assertEquals("Check that Camcorder arraylist size is 2", 2, camcorderList.size());
