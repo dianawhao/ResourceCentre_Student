@@ -20,6 +20,7 @@ public class ResourceCentreTest {
 	}
 	@Before
 	public void setUp() throws Exception {
+		// prepare test data
 		cc1 = new Camcorder("CC0011", "Nikon HDSLR", 40);
 		cc2 = new Camcorder("CC0012", "Sony DSC-RX100M7", 20);
 		cb1 = new Chromebook("CB0011", "My Google Chromebook 1st", "Mac OS");
@@ -32,32 +33,45 @@ public class ResourceCentreTest {
 	
 	@Test
 	public void addCamcorderTest() {
-
-		assertNotNull("Check if there is valid Camcorder arraylist to add to", camcorderList);
-		ResourceCentre.addCamcorder(camcorderList, cc1);
+		// Item list is not null, so that can add a new item
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		
-		assertEquals("Check that Camcorder arraylist size is 1", 1, camcorderList.size());
-		assertSame("Check that Camcorder is added", cc1, camcorderList.get(0));
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		ResourceCentre.addCamcorder(camcorderList, cc1);		
+		assertEquals("Test if that Camcorder arraylist size is 1?", 1, camcorderList.size());
 		
+		//The item just added is as same as the first item of the list
+		assertSame("Test that Camcorder is added same as 1st item of the list?", cc1, camcorderList.get(0));
+		
+		//Add another item. test The size of the list is 2?
 		ResourceCentre.addCamcorder(camcorderList, cc2);
-		assertEquals("Check that Camcorder arraylist size is 2", 2, camcorderList.size());
+		assertEquals("Test that Camcorder arraylist size is 2?", 2, camcorderList.size());
 	}
 	@Test
 	public void addChromebookTest() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 		// write your code here
 	}
 	
 	@Test
 	public void retrieveAllCamcorderTest() {
-
-		assertNotNull("Check if there is valid Camcorder arraylist to add to", camcorderList);
+		// Test if Item list is not null but empty, so that can add a new item
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
+		
+		//test if the list of camcorders retrieved from the SourceCentre is empty
+				String allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
+				String testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", 
+						"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
+				assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
+				
+		//Given an empty list, after adding 2 items, test if the size of the list is 2
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		ResourceCentre.addCamcorder(camcorderList, cc2);
-		assertEquals("Check that Camcorder arraylist size is 2", 2, camcorderList.size());
+		assertEquals("Test if that Camcorder arraylist size is 2?", 2, camcorderList.size());
 		
-		String allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
-		String testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", 
+		//test if the expected output string same as the list of camcorders retrieved from the SourceCentre
+		allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", 
 				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
 		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0011", "Nikon HDSLR", "Yes", "", 40);
 		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0012", "Sony DSC-RX100M7", "Yes", "", 20);
@@ -66,55 +80,33 @@ public class ResourceCentreTest {
 		
 	}
 	@Test
-	public void retrieveAllChrombookTest() {
-		//fail("Not yet implemented");
+	public void retrieveAllChromebookTest() {
+		fail("Not yet implemented");
 		// write your code here
 	}
 
 	@Test
 	public void doLoanCamcorderTest() {
-		assertNotNull("Check if there is valid Camcorder arraylist to add to", camcorderList);
-		ResourceCentre.addCamcorder(camcorderList, cc1);
-		ResourceCentre.addCamcorder(camcorderList, cc2);
-		cc2.setIsAvailable(false);
-		
-		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
-		assertTrue("Check that item is ok to loan?", ok);		
-		
-		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", "8-8-2020" );
-		assertFalse("Check that item is ok to loan?", ok);
-		
-		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020" );
-		assertFalse("Check that item is ok to loan?", ok);
+		fail("Not yet implemented");
+		// write your code here
 		
 	}
 	
 	@Test
 	public void doLoanChromebookTest() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 		// write your code here
 	}
 	
 	@Test
 	public void doReturnCamcorderTest() {
-		assertNotNull("Check if there is valid Camcorder arraylist to add to", camcorderList);
-		ResourceCentre.addCamcorder(camcorderList, cc1);
-		ResourceCentre.addCamcorder(camcorderList, cc2);
-		cc2.setIsAvailable(false);
-		
-		Boolean isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0011");
-		assertFalse("Check that item is returned?", isReturned);		
-		
-		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
-		assertTrue("Check that item is returned", isReturned);
-		
-		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
-		assertFalse("Check that item is returned?", isReturned);
+		fail("Not yet implemented");
+		// write your code here
 		
 	}
 	@Test
 	public void doReturnChromebookTest() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 		// write your code here
 	}
 	
