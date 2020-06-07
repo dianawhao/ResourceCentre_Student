@@ -18,6 +18,7 @@ public class ResourceCentreTest {
 	public ResourceCentreTest() {
 		super();
 	}
+	
 	@Before
 	public void setUp() throws Exception {
 		// prepare test data
@@ -60,8 +61,7 @@ public class ResourceCentreTest {
 		
 		//test if the list of camcorders retrieved from the SourceCentre is empty
 				String allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
-				String testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", 
-						"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
+				String testOutput = "";
 				assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
 				
 		//Given an empty list, after adding 2 items, test if the size of the list is 2
@@ -71,9 +71,8 @@ public class ResourceCentreTest {
 		
 		//test if the expected output string same as the list of camcorders retrieved from the SourceCentre
 		allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
-		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", 
-				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
-		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0011", "Nikon HDSLR", "Yes", "", 40);
+
+		testOutput = String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0011", "Nikon HDSLR", "Yes", "", 40);
 		testOutput += String.format("%-10s %-30s %-10s %-10s %-20d\n","CC0012", "Sony DSC-RX100M7", "Yes", "", 20);
 	
 		assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
