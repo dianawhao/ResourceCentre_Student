@@ -9,6 +9,7 @@ import org.junit.Test;
 public class ResourceCentreTest {
 	private Camcorder cc1;
 	private Camcorder cc2;
+	private Camcorder cc3;
 	private Chromebook cb1;
 	private Chromebook cb2;
 	
@@ -24,6 +25,7 @@ public class ResourceCentreTest {
 		// prepare test data
 		cc1 = new Camcorder("CC0011", "Nikon HDSLR", 40);
 		cc2 = new Camcorder("CC0012", "Sony DSC-RX100M7", 20);
+		cc3 = new Camcorder("CC0013", "panasoni DSC-RX100M7", 30);
 		cb1 = new Chromebook("CB0011", "My Google Chromebook 1st", "Mac OS");
 		cb2 = new Chromebook("CB0012", "SAMSUNG Chromebook 4+", "Win 10");
 
@@ -46,7 +48,9 @@ public class ResourceCentreTest {
 		
 		//Add another item. test The size of the list is 2?
 		ResourceCentre.addCamcorder(camcorderList, cc2);
-		assertEquals("Test that Camcorder arraylist size is 2?", 2, camcorderList.size());
+		ResourceCentre.addCamcorder(camcorderList, cc3);
+		assertEquals("Test that Camcorder arraylist size is 3?", 3, camcorderList.size());
+		assertSame("Test that Camcorder is added same as 3rd item of the list?", cc3, camcorderList.get(2));
 	}
 	@Test
 	public void testAddChromebook() {
@@ -89,6 +93,36 @@ public class ResourceCentreTest {
 		//fail("Not yet implemented");
 		// write your code here
 		
+		// boundary
+		//Test if Item list is not null but empty
+        // null means non existing, empty means list exists but has nothing inside
+
+        // Normal 
+		// Test if can loan out the camcorder added
+        // STEP1: Retrieve item added
+               // HINT1-1: reference the ResourceCentre.doLoanCamcorder method to understand the input parameters required
+               // HINT1-2: does the ResourceCentre.doLoanCamcorder method has a return value? If so, what do you need to do?
+               // HINT1-3: What is public static boolean?
+        // STEP2: From item retrieved, test if item is available for loan
+               // HINT2-1: which assertion method to use?
+               // HINT2-2: link STEP 1 and STEP 2
+		
+		// Error
+        // STEP3: Retrieve item added like above
+        // STEP4: Test if item is not available for loan
+               // HINT4-1: which assertion method to use?
+        
+        
+       
+		// STEP5: add camcorder cc2
+        // STEP6: use setIsAvailable and force it to be false
+        // STEP7: test loan cc2
+
+        
+        // STEP8: test loan a non existing item
+        // HINT8-1: do not add and straight away loan out
+
+
 	}
 	
 	@Test
