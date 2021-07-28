@@ -60,9 +60,9 @@ public class ResourceCentreTest {
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
 		
 		//test if the list of camcorders retrieved from the SourceCentre is empty
-				String allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
-				String testOutput = "";
-				assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
+		String allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
 				
 		//Given an empty list, after adding 2 items, test if the size of the list is 2
 		ResourceCentre.addCamcorder(camcorderList, cc1);
