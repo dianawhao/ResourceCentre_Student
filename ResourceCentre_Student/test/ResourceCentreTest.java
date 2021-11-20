@@ -90,37 +90,32 @@ public class ResourceCentreTest {
 
 	@Test
 	public void testDoLoanCamcorder() {
-		//fail("Not yet implemented");
-		// write your code here
-		
-		// boundary
-		//Test if Item list is not null but empty
-        // null means non existing, empty means list exists but has nothing inside
 
-        // Normal 
-		// Test if can loan out the camcorder added
-        // STEP1: Retrieve item added
-               // HINT1-1: reference the ResourceCentre.doLoanCamcorder method to understand the input parameters required
-               // HINT1-2: does the ResourceCentre.doLoanCamcorder method has a return value? If so, what do you need to do?
-               // HINT1-3: What is public static boolean?
-        // STEP2: From item retrieved, test if item is available for loan
-               // HINT2-1: which assertion method to use?
-               // HINT2-2: link STEP 1 and STEP 2
+		//boundary
+		assertNotNull("test if there is valid Camcorder arraylist to loan from", camcorderList);
 		
-		// Error
-        // STEP3: Retrieve item added like above
-        // STEP4: Test if item is not available for loan
-               // HINT4-1: which assertion method to use?
-        
-        
-       
-		// STEP5: add camcorder cc2
-        // STEP6: use setIsAvailable and force it to be false
-        // STEP7: test loan cc2
-
-        
-        // STEP8: test loan a non existing item
-        // HINT8-1: do not add and straight away loan out
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		
+		// normal
+		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
+		assertTrue("Test if an available item is ok to loan?", ok);
+		assertFalse(camcorderList.get(0).getIsAvailable());
+		assertEquals(camcorderList.get(0).getDueDate(),"8-8-2020");
+		
+				
+		//error condition
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020" );
+		assertFalse("Test if an same item is NOT ok to loan again?", ok);	
+		
+		//error condition
+		ResourceCentre.addCamcorder(camcorderList, cc2);	
+		cc2.setIsAvailable(false);
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", "8-8-2020" );
+		assertFalse("Test that un-available item is NOT ok to loan?", ok);
+		
+		//error condition
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013", "8-8-2020" );
+		assertFalse("Test that non-esiting item is NOT ok to loan?", ok);
 
 
 	}
@@ -133,8 +128,20 @@ public class ResourceCentreTest {
 	
 	@Test
 	public void testDoReturnCamcorder() {
-		//fail("Not yet implemented");
-		// write your code here
+		//boundary
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
+		ResourceCentre.addCamcorder(camcorderList, cc1);
+		//error
+		Boolean isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0011");
+		assertFalse("Test if available camcorder CC0011 is returned -false?", isReturned);		
+		//normal
+		ResourceCentre.addCamcorder(camcorderList, cc2);
+		cc2.setIsAvailable(false);
+		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0012");
+		assertTrue("Test if loaned out amcorder CC0012 is returned- true", isReturned);
+		//error
+		isReturned = ResourceCentre.doReturnCamcorder(camcorderList, "CC0013");
+		assertFalse("Test if non-existing amcorder CC0013 is returned - false?", isReturned);
 		
 	}
 	@Test
