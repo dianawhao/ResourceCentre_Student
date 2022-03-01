@@ -74,7 +74,7 @@ public class ResourceCentreTest {
 		//Given an empty list, after adding 2 items, test if the size of the list is 2
 		ResourceCentre.addCamcorder(camcorderList, cc1);
 		ResourceCentre.addCamcorder(camcorderList, cc2);
-		assertEquals("Test if that Camcorder arraylist size is 2?", 3, camcorderList.size());
+		assertEquals("Test if that Camcorder arraylist size is 2?", 2, camcorderList.size());
 		
 		//test if the expected output string same as the list of camcorders retrieved from the SourceCentre
 		allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
