@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
+// C206 AY2022 SEM1 - Eclipse 21-09 JDK16
 public class ResourceCentreTest {
 	private Camcorder cc1;
 	private Camcorder cc2;
@@ -58,7 +58,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testAddChromebook() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here 
 	}
 	
 	@Test
