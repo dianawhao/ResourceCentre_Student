@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-//Test
+
 public class ResourceCentre {
 
 	public static void main(String[] args) {
-// demo for CI
+
 		ArrayList<Camcorder> camcorderList = new ArrayList<Camcorder>();
 		ArrayList<Chromebook> chromebookList = new ArrayList<Chromebook>();
 
