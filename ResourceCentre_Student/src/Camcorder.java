@@ -1,6 +1,6 @@
 
 public class Camcorder extends Item{
-	private int opticalZoom;
+private int opticalZoom;
 
 	public Camcorder(String assetTag, String description, int opticalZoom) {
 		super(assetTag, description);
